@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Quantum Guard Bridge</title>
+  <meta name="description" content="Contact page for Quantum Guard Bridge with bilingual English/French content and direct contact details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08131f;
+      --panel: #0e1d2d;
+      --line: rgba(255,255,255,.1);
+      --text: #edf4ff;
+      --muted: #b2c2d6;
+      --brand: #2dd4bf;
+      --brand-2: #38bdf8;
+      --shadow: 0 18px 60px rgba(0,0,0,.30);
+      --radius: 20px;
+      --max: 1020px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(45,212,191,.12), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(56,189,248,.10), transparent 28%),
+        linear-gradient(180deg, #07101b 0%, #0b1724 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .lang-en .fr, .lang-fr .en { display: none !important; }
+    .topbar { position: sticky; top: 0; backdrop-filter: blur(12px); background: rgba(8,19,31,.74); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 74px; gap: 16px; }
+    .brand { display:flex; align-items:center; gap: 12px; font-weight: 800; }
+    .mark { width: 42px; height: 42px; border-radius: 14px; display:grid; place-items:center; color:#062030; background:linear-gradient(135deg,var(--brand),var(--brand-2)); }
+    .lang-switch { display:inline-flex; background: rgba(255,255,255,.05); border:1px solid var(--line); border-radius:999px; padding:4px; }
+    .lang-switch button { border:0; background:transparent; color:var(--muted); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:700; }
+    .lang-switch button.active { background: linear-gradient(135deg,var(--brand),var(--brand-2)); color:#062030; }
+    .hero { padding: 68px 0 30px; }
+    .hero-box, .contact-card, .info-card {
+      background: rgba(255,255,255,.04); border:1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
+    }
+    .hero-box { padding: 28px; display:grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+    h1 { margin: 0 0 16px; font-size: clamp(34px, 5vw, 58px); line-height: 1.03; letter-spacing: -1.3px; }
+    p { color: var(--muted); line-height: 1.75; }
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 18px; border-radius:14px; font-weight:700; }
+    .primary { background: linear-gradient(135deg,var(--brand),var(--brand-2)); color:#062030; }
+    .secondary { border:1px solid var(--line); background: rgba(255,255,255,.03); }
+    .hero-illustration { min-height: 280px; padding: 18px; display:grid; place-items:center; }
+    .grid { display:grid; grid-template-columns: repeat(2,1fr); gap:18px; margin-top: 24px; }
+    .contact-card, .info-card { padding: 22px; }
+    .label { display:block; color:#8ca2ba; margin-bottom:8px; font-size:14px; }
+    .value { font-size: 18px; font-weight: 700; word-break: break-word; }
+    .list { display:grid; gap:12px; }
+    .list-item { padding: 14px 0; border-bottom:1px solid var(--line); }
+    .list-item:last-child { border-bottom:0; }
+    .footer { padding: 28px 0 50px; color:#8ca2ba; }
+    .footer-inner { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:22px; }
+    @media (max-width: 900px) { .hero-box, .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="lang-en">
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="mark">Q</div>
+        <div>Quantum Guard Bridge</div>
+      </a>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a class="secondary btn" href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a>
+        <div class="lang-switch">
+          <button class="active" data-lang="en">EN</button>
+          <button data-lang="fr">FR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container">
+      <section class="hero-box">
+        <div>
+          <h1><span class="en">Contact the QGB team</span><span class="fr">Contactez l’équipe QGB</span></h1>
+          <p><span class="en">Use this page to start a conversation about the product, request a demo, or ask how Quantum Guard Bridge can support your cryptographic modernization roadmap.</span><span class="fr">Utilisez cette page pour démarrer une conversation sur le produit, demander une démonstration ou demander comment Quantum Guard Bridge peut soutenir votre feuille de route de modernisation cryptographique.</span></p>
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:info@quantumguardbridge.com">info@quantumguardbridge.com</a>
+            <a class="btn secondary" href="tel:+15148022641">+1 514 802 2641</a>
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <svg viewBox="0 0 420 280" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2dd4bf"/>
+                <stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <rect x="50" y="40" width="320" height="200" rx="28" fill="#0d1d2b" stroke="url(#cg)"/>
+            <rect x="82" y="72" width="256" height="34" rx="12" fill="rgba(45,212,191,.12)" stroke="#2dd4bf"/>
+            <rect x="82" y="122" width="256" height="34" rx="12" fill="rgba(56,189,248,.12)" stroke="#38bdf8"/>
+            <rect x="82" y="172" width="180" height="34" rx="12" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+            <circle cx="314" cy="188" r="28" fill="rgba(45,212,191,.15)" stroke="#2dd4bf" stroke-width="2"/>
+            <path d="M302 188h24" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/>
+            <path d="M314 176v24" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="contact-card">
+          <div class="label"><span class="en">Founder</span><span class="fr">Fondateur</span></div>
+          <div class="value">Mohammad-Reza Gerami</div>
+          <div class="list" style="margin-top:14px;">
+            <div class="list-item">
+              <div class="label"><span class="en">Personal email</span><span class="fr">Courriel personnel</span></div>
+              <a class="value" href="mailto:mr.gerami@gmail.com">mr.gerami@gmail.com</a>
+            </div>
+            <div class="list-item">
+              <div class="label"><span class="en">Phone</span><span class="fr">Téléphone</span></div>
+              <a class="value" href="tel:+15148022641">+1 514 802 2641</a>
+            </div>
+            <div class="list-item">
+              <div class="label"><span class="en">LinkedIn profile</span><span class="fr">Profil LinkedIn</span></div>
+              <a class="value" href="https://www.linkedin.com/in/mohammad-reza-gerami" target="_blank" rel="noreferrer">linkedin.com/in/mohammad-reza-gerami</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="label"><span class="en">Company</span><span class="fr">Entreprise</span></div>
+          <div class="value">Quantum Guard Bridge</div>
+          <div class="list" style="margin-top:14px;">
+            <div class="list-item">
+              <div class="label"><span class="en">Business email</span><span class="fr">Courriel entreprise</span></div>
+              <a class="value" href="mailto:info@quantumguardbridge.com">info@quantumguardbridge.com</a>
+            </div>
+            <div class="list-item">
+              <div class="label"><span class="en">Company LinkedIn</span><span class="fr">LinkedIn de l’entreprise</span></div>
+              <a class="value" href="https://www.linkedin.com/company/quantumguardbridge/" target="_blank" rel="noreferrer">linkedin.com/company/quantumguardbridge</a>
+            </div>
+            <div class="list-item">
+              <div class="label"><span class="en">Suggested use</span><span class="fr">Usage recommandé</span></div>
+              <p style="margin:0;"><span class="en">Use the company email for product inquiries and the founder email for direct conversations.</span><span class="fr">Utilisez le courriel de l’entreprise pour les demandes produit et le courriel du fondateur pour les échanges directs.</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Quantum Guard Bridge</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="index.html"><span class="en">Back to homepage</span><span class="fr">Retour à l’accueil</span></a>
+        <a href="mailto:info@quantumguardbridge.com">info@quantumguardbridge.com</a>
+        <a href="tel:+15148022641">+1 514 802 2641</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-lang]');
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      localStorage.setItem('qgb-lang', lang);
+      document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+    }
+    buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    setLang(localStorage.getItem('qgb-lang') || 'en');
+  </script>
+</body>
+</html>

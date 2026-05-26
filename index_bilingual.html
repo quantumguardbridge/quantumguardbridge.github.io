@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Guard Bridge | Cryptographic Risk Intelligence</title>
+  <meta name="description" content="Quantum Guard Bridge is a bilingual cryptographic risk intelligence platform helping organizations assess exposure, prioritize remediation, and prepare for post-quantum transition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#07111b; --panel:#0e1c2b; --panel2:#11253a; --line:rgba(255,255,255,.09);
+      --text:#eef5ff; --muted:#b5c5d9; --brand:#2dd4bf; --brand2:#38bdf8; --accent:#f59e0b;
+      --shadow:0 20px 60px rgba(0,0,0,.28); --radius:22px; --max:1180px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,sans-serif;background:
+      radial-gradient(circle at 12% 12%, rgba(45,212,191,.14), transparent 28%),
+      radial-gradient(circle at 86% 8%, rgba(56,189,248,.12), transparent 24%),
+      linear-gradient(180deg,#07111b 0%,#0b1724 100%); color:var(--text)}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block} .container{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    .lang-en .fr,.lang-fr .en{display:none!important}
+
+    .topbar{position:sticky;top:0;z-index:70;backdrop-filter:blur(14px);background:rgba(7,17,27,.74);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#062030;box-shadow:var(--shadow)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .lang-switch{display:inline-flex;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:4px}
+    .lang-switch button{border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800}
+    .lang-switch button.active{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#062030}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border-radius:14px;font-weight:800;transition:.2s ease}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#062030;box-shadow:0 10px 26px rgba(45,212,191,.16)}
+    .btn-primary:hover,.btn-secondary:hover{transform:translateY(-1px)}
+    .btn-secondary{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}
+
+    .hero{padding:72px 0 32px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(45,212,191,.25);border-radius:999px;color:#bdf8ef;background:rgba(45,212,191,.08);font-size:13px;font-weight:800}
+    h1{margin:18px 0 16px;font-size:clamp(34px,5vw,64px);line-height:1.03;letter-spacing:-1.6px}
+    .hero p{margin:0 0 26px;color:var(--muted);font-size:18px;line-height:1.75;max-width:63ch}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{margin-top:18px;color:#8ca2ba;font-size:14px}
+    .hero-card{background:linear-gradient(180deg,rgba(18,38,58,.96),rgba(14,29,45,.88));border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+    .card-top{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+    .score-chip{background:rgba(45,212,191,.12);color:#bdf8ef;padding:8px 12px;border-radius:999px;font-weight:800;border:1px solid rgba(45,212,191,.18)}
+    .hero-visual{position:relative;min-height:490px;padding:24px;background:
+      radial-gradient(circle at 72% 16%, rgba(45,212,191,.16), transparent 20%),
+      radial-gradient(circle at 20% 70%, rgba(56,189,248,.12), transparent 22%),
+      linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));}
+    .mini-panels{position:absolute;inset:24px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px}
+    .panel{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+    .panel h3{margin:0 0 10px;font-size:14px;color:#d4e7fa}.panel p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    .network-svg{position:absolute;left:50%;top:50%;width:min(88%,520px);transform:translate(-50%,-50%);opacity:.96;filter:drop-shadow(0 8px 30px rgba(0,0,0,.28))}
+
+    .section{padding:34px 0}
+    .section-header{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+    .section-header h2{margin:0;font-size:clamp(26px,3vw,38px);letter-spacing:-.8px}
+    .section-header p{margin:10px 0 0;color:var(--muted);max-width:68ch;line-height:1.7}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:20px;padding:22px}
+    .stat strong{display:block;font-size:34px;letter-spacing:-.8px;margin-bottom:6px}.stat span{color:var(--muted);font-size:14px;line-height:1.5}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .card-art{height:180px;padding:18px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(45,212,191,.14),rgba(56,189,248,.12));border-bottom:1px solid var(--line)}
+    .card-body{padding:20px}.card-body h3{margin:0 0 10px;font-size:20px}.card-body p{margin:0;color:var(--muted);line-height:1.7}
+    .split{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px}
+    .list-panel,.table-panel,.contact-panel{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+    .risk-list{display:grid;gap:14px}.risk-item{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+    .risk-item strong{display:block;margin-bottom:8px;font-size:15px}.risk-item p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:10px}
+    .chip.high{background:rgba(245,158,11,.14);color:#ffd58a}.chip.med{background:rgba(56,189,248,.14);color:#bdeaff}
+    table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:14px 8px;border-bottom:1px solid var(--line);vertical-align:top} th{color:#d4e7fa;font-size:13px} td{color:var(--muted);font-size:14px;line-height:1.6} tr:last-child td{border-bottom:0}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+    .contact-item{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:16px}
+    .contact-item small{display:block;color:#8ca2ba;margin-bottom:8px}.contact-item a{color:var(--text);font-weight:700;word-break:break-word}
+    .contact-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .footer{padding:28px 0 50px;color:#8ca2ba;font-size:14px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .gallery figure{margin:0;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .gallery .imgbox{height:220px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(45,212,191,.12),rgba(56,189,248,.10));border-bottom:1px solid var(--line)}
+    .gallery figcaption{padding:16px 18px;color:var(--muted);font-size:14px;line-height:1.6}
+    .hero-illustration{position:relative;min-height:220px}
+    .blob{filter:drop-shadow(0 10px 25px rgba(0,0,0,.25))}
+    @media (max-width: 1080px){.hero-grid,.split,.cards,.stats,.gallery{grid-template-columns:1fr}.hero-visual{min-height:420px}.contact-grid{grid-template-columns:1fr}}
+    @media (max-width: 760px){.nav-links{display:none}.nav-right{width:100%;justify-content:space-between}.mini-panels{position:static;display:grid;grid-template-columns:1fr;gap:12px;inset:auto}.network-svg{position:relative;left:auto;top:auto;transform:none;width:100%;margin:16px 0}.hero-visual{min-height:auto}}
+  </style>
+</head>
+<body class="lang-en">
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="mark">Q</div>
+        <div>
+          <div>Quantum Guard Bridge</div>
+          <div style="font-size:12px;color:#8ca2ba;font-weight:700;">Cryptographic Risk Intelligence</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#platform"><span class="en">Platform</span><span class="fr">Plateforme</span></a>
+        <a href="#gallery"><span class="en">Visuals</span><span class="fr">Visuels</span></a>
+        <a href="#risks"><span class="en">Risk Signals</span><span class="fr">Signaux de risque</span></a>
+        <a href="#access"><span class="en">Full Report</span><span class="fr">Rapport complet</span></a>
+        <a href="contact.html"><span class="en">Contact</span><span class="fr">Contact</span></a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button class="active" data-lang="en">EN</button>
+          <button data-lang="fr">FR</button>
+        </div>
+        <a class="btn btn-secondary" href="contact.html"><span class="en">Talk to us</span><span class="fr">Nous joindre</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span>⚛</span><span class="en">Quantum-ready cryptographic intelligence</span><span class="fr">Intelligence cryptographique prête pour le quantique</span></div>
+          <h1><span class="en">Assess crypto risk clearly and modernize with confidence.</span><span class="fr">Évaluez clairement le risque cryptographique et modernisez avec confiance.</span></h1>
+          <p><span class="en">Quantum Guard Bridge helps organizations understand their cryptographic exposure, prioritize remediation, and prepare for post-quantum transition with concise executive reporting.</span><span class="fr">Quantum Guard Bridge aide les organisations à comprendre leur exposition cryptographique, prioriser la remédiation et préparer la transition post-quantique avec des rapports exécutifs concis.</span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="contact.html"><span class="en">Request a demo</span><span class="fr">Demander une démo</span></a>
+            <a class="btn btn-secondary" href="#platform"><span class="en">Explore the platform</span><span class="fr">Découvrir la plateforme</span></a>
+          </div>
+          <div class="hero-note"><span class="en">Bilingual site, product visuals, linked contact page, and direct founder/company access.</span><span class="fr">Site bilingue, visuels produit, page contact liée et accès direct au fondateur et à l’entreprise.</span></div>
+        </div>
+        <div class="hero-card">
+          <div class="card-top"><div><span class="en">Preview dashboard</span><span class="fr">Tableau d’aperçu</span></div><div class="score-chip"><span class="en">Posture Score</span><span class="fr">Score de posture</span>: 74</div></div>
+          <div class="hero-visual">
+            <svg class="network-svg" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="560" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+              </defs>
+              <rect x="208" y="145" width="145" height="110" rx="24" fill="url(#g1)" opacity="0.16" stroke="url(#g1)"/>
+              <circle cx="280" cy="200" r="42" fill="#0f2335" stroke="url(#g1)" stroke-width="3"/>
+              <path d="M280 168v64M248 200h64" stroke="url(#g1)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M280 100V55M280 300v52M178 200h-66M448 200h-66M214 134l-45-45M346 266l48 48M214 266l-48 48M346 134l48-48" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+              <circle cx="280" cy="55" r="20" fill="#0f2335" stroke="#38bdf8" stroke-width="3"/>
+              <circle cx="280" cy="352" r="20" fill="#0f2335" stroke="#2dd4bf" stroke-width="3"/>
+              <circle cx="112" cy="200" r="20" fill="#0f2335" stroke="#2dd4bf" stroke-width="3"/>
+              <circle cx="448" cy="200" r="20" fill="#0f2335" stroke="#38bdf8" stroke-width="3"/>
+              <circle cx="167" cy="88" r="20" fill="#0f2335" stroke="#38bdf8" stroke-width="3"/>
+              <circle cx="394" cy="315" r="20" fill="#0f2335" stroke="#2dd4bf" stroke-width="3"/>
+              <circle cx="167" cy="315" r="20" fill="#0f2335" stroke="#2dd4bf" stroke-width="3"/>
+              <circle cx="394" cy="88" r="20" fill="#0f2335" stroke="#38bdf8" stroke-width="3"/>
+            </svg>
+            <div class="mini-panels">
+              <div class="panel"><h3><span class="en">Transport Exposure</span><span class="fr">Exposition transport</span></h3><p><span class="en">Identify internet-facing crypto pathways needing hardening and PQC planning.</span><span class="fr">Identifier les chemins cryptographiques exposés à Internet nécessitant un durcissement et une planification PQC.</span></p></div>
+              <div class="panel"><h3><span class="en">Trust Paths</span><span class="fr">Chaînes de confiance</span></h3><p><span class="en">Surface certificate, identity, and signing weaknesses affecting integrity and assurance.</span><span class="fr">Mettre en évidence les faiblesses des certificats, de l’identité et de la signature affectant l’intégrité et l’assurance.</span></p></div>
+              <div class="panel"><h3><span class="en">Evidence-Ready Reporting</span><span class="fr">Rapports prêts pour la preuve</span></h3><p><span class="en">Turn a snapshot into an execution-ready program with traceability and ownership.</span><span class="fr">Transformer un aperçu en programme exécutable avec traçabilité et responsabilités claires.</span></p></div>
+              <div class="panel"><h3><span class="en">Migration Focus</span><span class="fr">Priorité migration</span></h3><p><span class="en">Start modernization early and target the highest-value paths first.</span><span class="fr">Lancer tôt la modernisation et cibler d’abord les chemins les plus critiques.</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="stats">
+          <div class="stat"><strong>2</strong><span class="en">Languages built in: English and French.</span><span class="fr">Deux langues intégrées : anglais et français.</span></div>
+          <div class="stat"><strong>4</strong><span class="en">Core unlocks in the licensed report.</span><span class="fr">Quatre éléments clés dans le rapport sous licence.</span></div>
+          <div class="stat"><strong>24/7</strong><span class="en">Always-on public product page via GitHub Pages.</span><span class="fr">Page produit publique disponible en continu via GitHub Pages.</span></div>
+          <div class="stat"><strong>PQC</strong><span class="en">Built for post-quantum transition planning.</span><span class="fr">Conçu pour la planification de la transition post-quantique.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform" class="section">
+      <div class="container">
+        <div class="section-header"><div><h2><span class="en">Platform overview</span><span class="fr">Vue d’ensemble de la plateforme</span></h2><p><span class="en">The new homepage uses custom, security-themed visuals and balanced sections so it feels more polished and product-ready.</span><span class="fr">La nouvelle page d’accueil utilise des visuels personnalisés sur le thème de la sécurité et des sections équilibrées pour un rendu plus soigné et plus prêt pour le produit.</span></p></div></div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 300 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="20" y="20" width="260" height="140" rx="24" fill="#0d1d2b" stroke="#2dd4bf"/>
+                <circle cx="86" cy="90" r="30" fill="rgba(45,212,191,.14)" stroke="#2dd4bf" stroke-width="2.5"/>
+                <path d="M76 90h20M86 80v20" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round"/>
+                <rect x="140" y="58" width="96" height="12" rx="6" fill="#38bdf8" opacity=".6"/>
+                <rect x="140" y="84" width="64" height="10" rx="5" fill="#d3ebff" opacity=".55"/>
+                <rect x="140" y="106" width="78" height="10" rx="5" fill="#d3ebff" opacity=".32"/>
+              </svg>
+            </div>
+            <div class="card-body"><h3><span class="en">Executive preview</span><span class="fr">Aperçu exécutif</span></h3><p><span class="en">A concise report for leadership that frames posture, urgency, and next actions.</span><span class="fr">Un rapport concis pour les décideurs qui présente la posture, l’urgence et les actions suivantes.</span></p></div>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 300 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M54 134L112 66l48 42 44-62 42 34" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="54" cy="134" r="9" fill="#2dd4bf"/><circle cx="112" cy="66" r="9" fill="#38bdf8"/><circle cx="160" cy="108" r="9" fill="#2dd4bf"/><circle cx="204" cy="46" r="9" fill="#38bdf8"/><circle cx="246" cy="80" r="9" fill="#f59e0b"/>
+                <rect x="28" y="24" width="244" height="132" rx="22" fill="none" stroke="#2dd4bf" opacity=".45"/>
+              </svg>
+            </div>
+            <div class="card-body"><h3><span class="en">Risk prioritization</span><span class="fr">Priorisation des risques</span></h3><p><span class="en">Focus remediation on transport exposure, signing trust, and secrets hygiene first.</span><span class="fr">Concentrez d’abord la remédiation sur l’exposition transport, la confiance de signature et l’hygiène des secrets.</span></p></div>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 300 180" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="36" y="30" width="228" height="120" rx="20" fill="#0d1d2b" stroke="#38bdf8"/>
+                <rect x="58" y="54" width="50" height="72" rx="14" fill="rgba(45,212,191,.14)" stroke="#2dd4bf"/>
+                <rect x="124" y="54" width="50" height="72" rx="14" fill="rgba(56,189,248,.14)" stroke="#38bdf8"/>
+                <rect x="190" y="54" width="50" height="72" rx="14" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+              </svg>
+            </div>
+            <div class="card-body"><h3><span class="en">Execution-ready outputs</span><span class="fr">Livrables prêts à l’exécution</span></h3><p><span class="en">Licensed customers unlock evidence, CBOM, remediation waves, and compliance artifacts.</span><span class="fr">Les clients licenciés débloquent les preuves, le CBOM, les vagues de remédiation et les artéfacts de conformité.</span></p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="section-header"><div><h2><span class="en">Visual highlights</span><span class="fr">Visuels mis en avant</span></h2><p><span class="en">These built-in illustrations keep the homepage visually rich without depending on external images.</span><span class="fr">Ces illustrations intégrées rendent la page d’accueil plus riche visuellement sans dépendre d’images externes.</span></p></div></div>
+        <div class="gallery">
+          <figure>
+            <div class="imgbox">
+              <svg viewBox="0 0 360 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="180" cy="110" r="56" fill="rgba(45,212,191,.12)" stroke="#2dd4bf" stroke-width="3"/>
+                <circle cx="180" cy="110" r="26" fill="#0f2335" stroke="#38bdf8" stroke-width="3"/>
+                <path d="M180 84v52M154 110h52" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+                <path d="M180 54V30M180 190v-24M124 110H100M260 110h-24M143 73l-20-20M237 73l20-20M143 147l-20 20M237 147l20 20" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+              </svg>
+            </div>
+            <figcaption><span class="en">Cryptographic trust center</span><span class="fr">Centre de confiance cryptographique</span></figcaption>
+          </figure>
+          <figure>
+            <div class="imgbox">
+              <svg viewBox="0 0 360 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M38 166h284" stroke="#2dd4bf" stroke-width="4" opacity=".8"/>
+                <path d="M70 144L126 102l52 30 52-52 48 22" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="70" cy="144" r="8" fill="#2dd4bf"/><circle cx="126" cy="102" r="8" fill="#38bdf8"/><circle cx="178" cy="132" r="8" fill="#2dd4bf"/><circle cx="230" cy="80" r="8" fill="#38bdf8"/><circle cx="278" cy="102" r="8" fill="#f59e0b"/>
+              </svg>
+            </div>
+            <figcaption><span class="en">Risk trends and modernization path</span><span class="fr">Tendances de risque et chemin de modernisation</span></figcaption>
+          </figure>
+          <figure>
+            <div class="imgbox">
+              <svg viewBox="0 0 360 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="52" y="36" width="256" height="148" rx="24" fill="#0d1d2b" stroke="#38bdf8"/>
+                <rect x="78" y="66" width="204" height="24" rx="12" fill="rgba(45,212,191,.16)" stroke="#2dd4bf"/>
+                <rect x="78" y="102" width="204" height="24" rx="12" fill="rgba(56,189,248,.16)" stroke="#38bdf8"/>
+                <rect x="78" y="138" width="150" height="24" rx="12" fill="rgba(245,158,11,.16)" stroke="#f59e0b"/>
+              </svg>
+            </div>
+            <figcaption><span class="en">Report blocks for leadership and engineering</span><span class="fr">Blocs de rapport pour les décideurs et l’ingénierie</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks" class="section">
+      <div class="container split">
+        <div class="list-panel">
+          <div class="section-header" style="margin-bottom:12px;"><div><h2><span class="en">Priority risk signals</span><span class="fr">Signaux de risque prioritaires</span></h2><p><span class="en">The page now reads like a product story and a security story at the same time.</span><span class="fr">La page se lit désormais à la fois comme une histoire produit et une histoire sécurité.</span></p></div></div>
+          <div class="risk-list">
+            <div class="risk-item"><div class="chip high"><span class="en">High</span><span class="fr">Élevé</span></div><strong><span class="en">Internet-facing crypto exposure</span><span class="fr">Exposition cryptographique côté Internet</span></strong><p><span class="en">Harden external transport paths first and prepare for hybrid or PQC-compatible rollout.</span><span class="fr">Renforcez d’abord les chemins de transport externes et préparez un déploiement hybride ou compatible PQC.</span></p></div>
+            <div class="risk-item"><div class="chip high"><span class="en">High</span><span class="fr">Élevé</span></div><strong><span class="en">Identity and signing trust weakness</span><span class="fr">Faiblesse de confiance identité et signature</span></strong><p><span class="en">Stabilize signing workflows and protect service integrity before confidence erodes.</span><span class="fr">Stabilisez les flux de signature et protégez l’intégrité des services avant l’érosion de la confiance.</span></p></div>
+            <div class="risk-item"><div class="chip med"><span class="en">Medium</span><span class="fr">Moyen</span></div><strong><span class="en">Secrets and key hygiene drift</span><span class="fr">Dérive d’hygiène des secrets et des clés</span></strong><p><span class="en">Rotate exposed material and move handling into managed secure paths.</span><span class="fr">Faites tourner les éléments exposés et migrez leur gestion vers des chemins sécurisés gérés.</span></p></div>
+          </div>
+        </div>
+        <div class="table-panel" id="access">
+          <div class="section-header" style="margin-bottom:8px;"><div><h2><span class="en">Full report access</span><span class="fr">Accès au rapport complet</span></h2><p><span class="en">A compact table keeps the section readable and balanced.</span><span class="fr">Un tableau compact garde la section lisible et équilibrée.</span></p></div></div>
+          <table>
+            <thead><tr><th><span class="en">Unlock</span><span class="fr">Déblocage</span></th><th><span class="en">Value</span><span class="fr">Valeur</span></th></tr></thead>
+            <tbody>
+              <tr><td><span class="en">Evidence traceability</span><span class="fr">Traçabilité des preuves</span></td><td><span class="en">Asset-level evidence and technical appendix.</span><span class="fr">Preuves au niveau des actifs et annexe technique.</span></td></tr>
+              <tr><td><span class="en">CBOM export</span><span class="fr">Export CBOM</span></td><td><span class="en">Cryptographic dependency mapping for planning.</span><span class="fr">Cartographie des dépendances cryptographiques pour la planification.</span></td></tr>
+              <tr><td><span class="en">Remediation roadmap</span><span class="fr">Feuille de route</span></td><td><span class="en">Phased waves, ownership, and sequencing.</span><span class="fr">Vagues phasées, responsabilités et séquencement.</span></td></tr>
+              <tr><td><span class="en">Compliance annex</span><span class="fr">Annexe de conformité</span></td><td><span class="en">Governance artifacts and compliance documentation.</span><span class="fr">Artéfacts de gouvernance et documentation de conformité.</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-panel">
+        <div class="section-header" style="margin-bottom:0;"><div><h2><span class="en">Contact and links</span><span class="fr">Contact et liens</span></h2><p><span class="en">The homepage now links cleanly to the contact page and to both LinkedIn profiles.</span><span class="fr">La page d’accueil renvoie proprement vers la page contact et vers les deux profils LinkedIn.</span></p></div></div>
+        <div class="contact-grid">
+          <div class="contact-item"><small><span class="en">Contact page</span><span class="fr">Page contact</span></small><a href="contact.html"><span class="en">Open the contact page</span><span class="fr">Ouvrir la page contact</span></a></div>
+          <div class="contact-item"><small><span class="en">Founder LinkedIn</span><span class="fr">LinkedIn du fondateur</span></small><a href="https://www.linkedin.com/in/mohammad-reza-gerami" target="_blank" rel="noreferrer">linkedin.com/in/mohammad-reza-gerami</a></div>
+          <div class="contact-item"><small><span class="en">Company LinkedIn</span><span class="fr">LinkedIn de l’entreprise</span></small><a href="https://www.linkedin.com/company/quantumguardbridge/" target="_blank" rel="noreferrer">linkedin.com/company/quantumguardbridge</a></div>
+          <div class="contact-item"><small><span class="en">Email</span><span class="fr">Courriel</span></small><a href="mailto:info@quantumguardbridge.com">info@quantumguardbridge.com</a></div>
+        </div>
+        <div class="contact-cta"><a class="btn btn-primary" href="contact.html"><span class="en">Go to contact page</span><span class="fr">Aller à la page contact</span></a><a class="btn btn-secondary" href="mailto:mr.gerami@gmail.com">mr.gerami@gmail.com</a><a class="btn btn-secondary" href="tel:+15148022641">+1 514 802 2641</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Quantum Guard Bridge</div>
+      <div class="footer-links"><a href="mailto:info@quantumguardbridge.com">info@quantumguardbridge.com</a><a href="tel:+15148022641">+1 514 802 2641</a><a href="contact.html"><span class="en">Contact page</span><span class="fr">Page contact</span></a></div>
+    </div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-lang]');
+    function setLang(lang){
+      document.body.className = 'lang-' + lang;
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      localStorage.setItem('qgb-lang', lang);
+      document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+    }
+    buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    setLang(localStorage.getItem('qgb-lang') || 'en');
+  </script>
+</body>
+</html>
