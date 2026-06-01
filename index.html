@@ -101,6 +101,115 @@
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
+	/* Styling for Consulting Services Section */
+.consulting-services {
+  padding: 4rem 2rem;
+  background-color: #0b1120; /* منطبق با رنگ پس زمینه سایت شما */
+  color: #ffffff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: #00e5ff; /* رنگ فیروزه ای سایت شما */
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 16px;
+  padding: 3rem 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  animation: fade 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.slide-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.slide-desc {
+  color: #a0aec0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Slider Buttons */
+.slider-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #00e5ff;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  user-select: none;
+}
+
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+
+.slider-btn:hover {
+  background-color: rgba(0, 229, 255, 0.2);
+}
+
+/* Dots */
+.slider-dots {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #334155;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+  background-color: #00e5ff;
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
   </style>
 </head>
 <body class="lang-en">
@@ -155,7 +264,41 @@
     <img src="imagees/QGB-Posts-image1.png" alt="QuantumGuard Bridge Security Architecture" class="hero-image" />
 </div>
     </section>
+	<section class="consulting-services">
+	  <div class="container">
+		<h2 class="section-title">Expert Consulting & Solutions</h2>
+		<p class="section-subtitle">Led by our Founder & Lead Architect, Winner of the Polytechnique Montréal Cybersecurity Competition.</p>
+		
+		<div class="slider-container">
+		  <div class="slide active">
+			<div class="slide-icon">🌐</div>
+			<h3 class="slide-title">Secure Network & Service Architecture</h3>
+			<p class="slide-desc" data-lang="en">Designing robust, scalable, and zero-trust driven network architectures. Expertise in integrating advanced cryptographic protocols and ensuring end-to-end service security against sophisticated threat vectors.</p>
+		  </div>
 
+		  <div class="slide">
+			<div class="slide-icon">🛡️</div>
+			<h3 class="slide-title">Post-Quantum Security Migration Strategy</h3>
+			<p class="slide-desc" data-lang="en">Developing crypto-agile frameworks based on the latest NIST PQC standards. Providing strategic roadmaps, Cryptography Bill of Materials (CBOM) analysis, and seamless migration paths to quantum-resistant algorithms.</p>
+		  </div>
+
+		  <div class="slide">
+			<div class="slide-icon">📊</div>
+			<h3 class="slide-title">Risk Management, Governance & Compliance</h3>
+			<p class="slide-desc" data-lang="en">Aligning enterprise security posture with regulatory frameworks. Comprehensive threat modeling, continuous risk assessment, and establishing robust governance structures for long-term cryptographic resilience.</p>
+		  </div>
+
+		  <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+		  <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+		</div>
+		
+		<div class="slider-dots">
+		  <span class="dot active" onclick="currentSlide(1)"></span>
+		  <span class="dot" onclick="currentSlide(2)"></span>
+		  <span class="dot" onclick="currentSlide(3)"></span>
+		</div>
+	  </div>
+	</section>
     <section id="problem" class="section" style="background: rgba(255,255,255,0.02);">
       <div class="container grid-2">
         <div>
@@ -303,6 +446,41 @@
     }
     buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
     setLang(localStorage.getItem('qgb-lang') || 'en');
+	let slideIndex = 1;
+	
+	showSlides(slideIndex);
+
+	function changeSlide(n) {
+	  showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+	  let i;
+	  let slides = document.getElementsByClassName("slide");
+	  let dots = document.getElementsByClassName("dot");
+	  
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  
+	  for (i = 0; i < slides.length; i++) {
+		slides[i].classList.remove("active");  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		dots[i].classList.remove("active");
+	  }
+	  
+	  slides[slideIndex-1].classList.add("active");  
+	  dots[slideIndex-1].classList.add("active");
+	}
+
+	// اسلایدشو خودکار هر ۵ ثانیه
+	setInterval(function() {
+		changeSlide(1);
+	}, 5000);
   </script>
 </body>
 </html>
