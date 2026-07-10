@@ -16,6 +16,5 @@ This package contains a bilingual static website for GitHub Pages.
 ## Contact details included
 - Founder email: `mr.gerami@gmail.com`
 - Business email: `info@quantumguardbridge.com`
-- Phone: `+1 514 802 2641`
 - Founder LinkedIn: `https://www.linkedin.com/in/mohammad-reza-gerami`
 - Company LinkedIn: `https://www.linkedin.com/company/quantumguardbridge/`
